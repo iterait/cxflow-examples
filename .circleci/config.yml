@@ -1,0 +1,68 @@
+version: 2
+
+references:
+
+  ubuntu_deps: &ubuntu_deps
+    run:
+      name: Install Ubuntu dependencies
+      command: |
+        apt update
+        apt -y install git python3-dev python3-pip wget curl
+
+  install: &install
+    run:
+      name: Install cxflow
+      command: |
+        # cxflow
+        source <(curl -fsSL https://raw.githubusercontent.com/Cognexa/ci-utils/master/git-utils.sh)
+        fallback_pip_install_branch https://github.com/Cognexa/cxflow.git "$CIRCLE_BRANCH"
+        fallback_pip_install_branch https://github.com/Cognexa/cxflow-tensorflow.git "$CIRCLE_BRANCH"
+
+  test_majority: &test_majority
+    run:
+      name: Run majority training
+      command: |
+        cxflow train -v majority
+        cxflow resume -v log/MajorityExample*
+
+  test_mnist_mlp: &test_mnist_mlp
+    run:
+      name: Run MNIST MLP training
+      command: |
+        cxflow dataset download -v mnist_mlp
+        cxflow train -v mnist_mlp
+
+  test_mnist_convnet: &test_mnist_convnet
+    run:
+      name: Run MNIST Convnet training
+      command: |
+        cxflow dataset download -v mnist_convnet
+        cxflow train -v mnist_convnet
+
+  test_imdb: &test_imdb
+    run:
+      name: Run IMDB training
+      command: |
+        cxflow train -v .circleci/test_imdb.yaml
+
+jobs:
+
+  test_ubuntu:
+    docker:
+      - image: ubuntu:rolling
+    working_directory: cxflow-examples
+    steps:
+      - *ubuntu_deps
+      - checkout
+      - *install
+      - *test_majority
+      - *test_mnist_mlp
+      - *test_mnist_convnet
+      - *test_imdb
+
+workflows:
+
+  version: 2
+  test-matrix:
+    jobs:
+      - test_ubuntu
