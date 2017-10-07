@@ -1,7 +1,7 @@
-from cxflow.hooks import AbstractHook
+import cxflow as cx
 
 
-class IMDBPredict(AbstractHook):
+class IMDBPredict(cx.AbstractHook):
     SENTIMENTS = {0: 'negative', 1: 'positive'}
 
     def after_batch(self, stream_name, batch_data):
