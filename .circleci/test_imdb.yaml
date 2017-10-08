@@ -24,7 +24,6 @@ hooks:
       loss: [mean]
       accuracy: [mean]
 - LogVariables
-- CatchSigint
 - SaveBest:
     stream: test
 - LogProfile

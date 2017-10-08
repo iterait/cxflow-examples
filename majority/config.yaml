@@ -26,6 +26,5 @@ hooks:
   - SaveBest:
       stream: test
   - LogVariables
-  - CatchSigint
   - StopAfter:
       epochs: 10
