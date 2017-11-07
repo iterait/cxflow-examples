@@ -1,6 +1,5 @@
 import cxflow_tensorflow as cxtf
 import tensorflow as tf
-from tensorflow.contrib.keras.python.keras.layers import Embedding, GRU, Dropout, Dense, Bidirectional
 
 
 class SimpleGRU(cxtf.BaseModel):
@@ -11,14 +10,14 @@ class SimpleGRU(cxtf.BaseModel):
         y = tf.placeholder(dtype=tf.int64, shape=[None], name='y')
 
         with tf.variable_scope('emb1'):
-            net = Embedding(self._dataset.vocab_size, embedding_dim)(x)
-            net = Dropout(0.1)(net, training=self.is_training)
+            net = tf.keras.layers.Embedding(self._dataset.vocab_size, embedding_dim)(x)
+            net = tf.keras.layers.Dropout(0.1)(net, training=self.is_training)
         with tf.variable_scope('gru2'):
-            net = Bidirectional(GRU(gru_dim, return_sequences=True))(net)
+            net = tf.keras.layers.Bidirectional(tf.keras.layers.GRU(gru_dim, return_sequences=True))(net)
             net = tf.reduce_mean(net, axis=1)
         with tf.variable_scope('dense4'):
-            net = Dropout(dropout)(net,  training=self.is_training)
-            logits = Dense(2, activation=None)(net)
+            net = tf.keras.layers.Dropout(dropout)(net,  training=self.is_training)
+            logits = tf.keras.layers.Dense(2, activation=None)(net)
 
         loss = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=y, logits=logits)
         tf.identity(loss, name='loss')
