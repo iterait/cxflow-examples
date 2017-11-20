@@ -7,6 +7,13 @@
 
 This repository contains various tested examples of machine learning models created with [cxflow](Cognexa/cxflow) framework.
 
+**Compatible with TensorFlow version 1.4.**
+
+For a different version checkout appropriate branch after clonning, e.g.:
+```
+git checkout tf-1.3
+```
+
 ## Quick start
 - [10 minutes **cxflow** tutorial](https://cxflow.org/tutorial.html)
 - [5 minutes **cxflow-tensorflow** tutorial](https://tensorflow.cxflow.org/tutorial.html).
