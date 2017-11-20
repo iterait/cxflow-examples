@@ -7,6 +7,8 @@ Trained network can be easily applied to a new review as explained bellow.
 
 It is required to have **python 3.5+** and **pip** available in your system.
 
+**Compatible with TensorFlow version 1.3.**
+
 1. Install **cxflow-tensorflow** and download the examples (if not done yet):
 ```
 pip3 install cxflow cxflow-tensorflow --upgrade
