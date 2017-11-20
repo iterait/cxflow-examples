@@ -67,3 +67,14 @@ workflows:
   test-matrix:
     jobs:
       - test_ubuntu
+
+  nightly-build:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - test_ubuntu
