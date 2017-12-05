@@ -1,2 +1,2 @@
 from .majority_net import MajorityNet
-from .majority import MajorityDataset
+from .majority_dataset import MajorityDataset

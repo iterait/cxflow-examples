@@ -1,3 +1,3 @@
 from .gru_net import SimpleGRU
 from .imdb_prediction_hook import IMDBPredict
-from .imdb import IMDBDataset
+from .imdb_dataset import IMDBDataset

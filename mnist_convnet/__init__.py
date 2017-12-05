@@ -1,2 +1,2 @@
 from .convnet import SimpleConvNet
-from .mnist import MNISTDataset
+from .mnist_dataset import MNISTDataset
