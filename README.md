@@ -24,8 +24,6 @@ git checkout tf-1.3
 
 ## Example models
 
-0. [**cxflow** compatible datasets](datasets/) for the following models
-
 1. [Bit majority task](majority/)
 2. [Convolutional network for MNIST](mnist_convnet/)
 3. [IMDB moview review sentiment](imdb/)
