@@ -27,9 +27,8 @@ git checkout tf-1.3
 0. [**cxflow** compatible datasets](datasets/) for the following models
 
 1. [Bit majority task](majority/)
-2. [MLP network for MNIST](mnist_mlp/)
-3. [Convolutional network for MNIST](mnist_convnet/)
-4. [IMDB moview review sentiment](imdb/)
+2. [Convolutional network for MNIST](mnist_convnet/)
+3. [IMDB moview review sentiment](imdb/)
 
 ## Contribution
 In case you have created a nice experiment using **cxflow**, do not hesitate to fork this repository and make a pull request.

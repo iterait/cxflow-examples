@@ -26,13 +26,6 @@ references:
         cxflow train -v majority
         cxflow resume -v log/*MajorityExample*
 
-  test_mnist_mlp: &test_mnist_mlp
-    run:
-      name: Run MNIST MLP training
-      command: |
-        cxflow dataset download -v mnist_mlp
-        cxflow train -v mnist_mlp
-
   test_mnist_convnet: &test_mnist_convnet
     run:
       name: Run MNIST Convnet training
@@ -57,7 +50,6 @@ jobs:
       - checkout
       - *install
       - *test_majority
-      - *test_mnist_mlp
       - *test_mnist_convnet
       - *test_imdb
 
