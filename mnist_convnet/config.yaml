@@ -1,5 +1,5 @@
 dataset:
-  class: datasets.MNISTDataset
+  class: mnist_convnet.MNISTDataset
 
 model:
   name: ConvNetExample

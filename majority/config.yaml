@@ -1,5 +1,5 @@
 dataset:
-  class: datasets.MajorityDataset
+  class: majority.MajorityDataset
   n_examples: 500
   dim: 11
   batch_size: 4

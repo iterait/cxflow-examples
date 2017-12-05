@@ -1,5 +1,5 @@
 dataset:
-  class: datasets.MNISTDataset
+  class: mnist_mlp.MNISTDataset
 
 model:
   name: MNIST_MLP_Example
