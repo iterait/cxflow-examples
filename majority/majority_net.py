@@ -9,8 +9,9 @@ class MajorityNet(cxtf.BaseModel):
     """Simple 2-layered MLP for majority task."""
 
     def _create_model(self, hidden):
+
         logging.debug('Constructing placeholders matching the model.inputs')
-        x = tf.placeholder(dtype=tf.float32, shape=[None, 11], name='x')
+        x = tf.placeholder(dtype=tf.float32, shape=[None, self._dataset.dim], name='x')
         y = tf.placeholder(dtype=tf.float32, shape=[None], name='y')
 
         logging.debug('Constructing MLP model')

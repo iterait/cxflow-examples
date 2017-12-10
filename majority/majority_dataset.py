@@ -18,6 +18,7 @@ class MajorityDataset(cx.BaseDataset):
         :param batch_size: batch size
         """
         self.batch_size = batch_size
+        self.dim = dim
 
         x = npr.random_integers(0, 1, n_examples * dim).reshape(n_examples, dim)
         y = x.sum(axis=1) > int(dim/2)
