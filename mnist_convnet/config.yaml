@@ -19,5 +19,7 @@ hooks:
   - ComputeStats:
       variables: [loss, accuracy]
   - LogVariables
+  - LogProfile
   - StopAfter:
       minutes: 2
+

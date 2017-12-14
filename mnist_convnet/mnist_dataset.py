@@ -35,7 +35,7 @@ class MNISTDataset(cx.DownloadableDataset):
                 with gzip.open(file_path, 'rb') as file:
                     if 'images' in key:
                         _, _, rows, cols = struct.unpack(">IIII", file.read(16))
-                        self._data[key] = np.frombuffer(file.read(), dtype=np.uint8).reshape(-1, rows, cols)
+                        self._data[key] = np.frombuffer(file.read(), dtype=np.uint8).reshape(-1, rows, cols, 1)
                     else:
                         _ = struct.unpack(">II", file.read(8))
                         self._data[key] = np.frombuffer(file.read(), dtype=np.int8)
