@@ -6,7 +6,7 @@ class MajorityDataset(cx.BaseDataset):
     """
     Toy dataset for the majority task.
 
-    See ../majority/README.md for basic usage. or <https://cognexa.github.io/cxflow/tutorial> for detailed tutorial.
+    See ../majority/README.md for basic usage. or <https://iterait.github.io/cxflow/tutorial> for detailed tutorial.
     """
 
     def _configure_dataset(self, n_examples: int, dim: int, batch_size: int, **kwargs) -> None:

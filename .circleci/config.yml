@@ -15,9 +15,9 @@ references:
       name: Install cxflow
       command: |
         # cxflow
-        source <(curl -fsSL https://raw.githubusercontent.com/Cognexa/ci-utils/master/git-utils.sh)
-        fallback_pip_install_branch https://github.com/Cognexa/cxflow.git "$CIRCLE_BRANCH"
-        fallback_pip_install_branch https://github.com/Cognexa/cxflow-tensorflow.git "$CIRCLE_BRANCH"
+        source <(curl -fsSL https://raw.githubusercontent.com/iterait/ci-utils/master/git-utils.sh)
+        fallback_pip_install_branch https://github.com/iterait/cxflow.git "$CIRCLE_BRANCH"
+        fallback_pip_install_branch https://github.com/iterait/cxflow-tensorflow.git "$CIRCLE_BRANCH"
 
   test_majority: &test_majority
     run:
