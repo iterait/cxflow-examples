@@ -7,7 +7,7 @@ It is required to have **python 3.5+** and **pip** available in your system.
 1. Install **cxflow-tensorflow** and download the examples (if not done yet):
 ```
 pip3 install cxflow cxflow-tensorflow --upgrade
-git clone https://github.com/Cognexa/cxflow-examples.git
+git clone https://github.com/iterait/cxflow-examples.git
 cd cxflow-examples
 ```
 

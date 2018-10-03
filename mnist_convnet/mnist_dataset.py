@@ -7,7 +7,7 @@ import os.path as path
 import numpy as np
 import cxflow as cx
 
-DOWNLOAD_ROOT = 'https://github.com/Cognexa/cxflow-examples/releases/download/mnist-dataset/'
+DOWNLOAD_ROOT = 'https://github.com/iterait/cxflow-examples/releases/download/mnist-dataset/'
 FILENAMES = {'train_images': 'train-images-idx3-ubyte.gz',
              'train_labels': 'train-labels-idx1-ubyte.gz',
              'test_images': 't10k-images-idx3-ubyte.gz',
