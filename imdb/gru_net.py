@@ -1,8 +1,8 @@
-import cxflow_tensorflow as cxtf
+import emloop_tensorflow as eltf
 import tensorflow as tf
 
 
-class SimpleGRU(cxtf.BaseModel):
+class SimpleGRU(eltf.BaseModel):
     """Simple 2-layered MLP for majority task."""
 
     def _create_model(self, dropout: int=0.5, embedding_dim: int=256, gru_dim: int=128):

@@ -1,11 +1,11 @@
 import logging
 
-import cxflow_tensorflow as cxtf
+import emloop_tensorflow as eltf
 import tensorflow as tf
 import tensorflow.contrib.keras as K
 
 
-class MajorityNet(cxtf.BaseModel):
+class MajorityNet(eltf.BaseModel):
     """Simple 2-layered MLP for majority task."""
 
     def _create_model(self, hidden):
