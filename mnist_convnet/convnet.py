@@ -1,9 +1,9 @@
 import tensorflow as tf
 import tensorflow.contrib.keras as K
-import cxflow_tensorflow as cxtf
+import emloop_tensorflow as eltf
 
 
-class SimpleConvNet(cxtf.BaseModel):
+class SimpleConvNet(eltf.BaseModel):
 
     def _create_model(self):
         images = tf.placeholder(tf.float32, shape=[None, 28, 28, 1], name='images')

@@ -14,23 +14,23 @@ For a different version checkout appropriate branch after clonning, e.g.:
 git checkout tf-1.3
 ```
 
-1. Install **cxflow-tensorflow** and download the examples (if not done yet):
+1. Install **emloop-tensorflow** and download the examples (if not done yet):
 ```
-pip3 install cxflow cxflow-tensorflow --upgrade
-git clone https://github.com/iterait/cxflow-examples.git
-cd cxflow-examples
+pip3 install emloop emloop-tensorflow --upgrade
+git clone https://github.com/iterait/emloop-examples.git
+cd emloop-examples
 ```
 
 2. Train the bi-directional GRU network
 ```
-cxflow train imdb
+emloop train imdb
 ```
 
 You should reach test accuracy around 89.5%, the best model will be saved in `log/IMDB_GRU_<dir_name>`.
 
 3. Obtain predictions interactively:
 ```
-cxflow predict log/<your training directory>
+emloop predict log/<your training directory>
 ```
 
 After a moment, you should see the following prompt:

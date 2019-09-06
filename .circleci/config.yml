@@ -12,39 +12,39 @@ references:
 
   install: &install
     run:
-      name: Install cxflow
+      name: Install emloop
       command: |
-        # cxflow
+        # emloop
         source <(curl -fsSL https://raw.githubusercontent.com/iterait/ci-utils/master/git-utils.sh)
-        fallback_pip_install_branch https://github.com/iterait/cxflow.git "$CIRCLE_BRANCH"
-        fallback_pip_install_branch https://github.com/iterait/cxflow-tensorflow.git "$CIRCLE_BRANCH"
+        fallback_pip_install_branch https://github.com/iterait/emloop.git "$CIRCLE_BRANCH"
+        fallback_pip_install_branch https://github.com/iterait/emloop-tensorflow.git "$CIRCLE_BRANCH"
 
   test_majority: &test_majority
     run:
       name: Run majority training
       command: |
-        cxflow train -v majority
-        cxflow resume -v log/*MajorityExample*
+        emloop train -v majority
+        emloop resume -v log/*MajorityExample*
 
   test_mnist_convnet: &test_mnist_convnet
     run:
       name: Run MNIST Convnet training
       command: |
-        cxflow dataset download -v mnist_convnet
-        cxflow train -v mnist_convnet
+        emloop dataset download -v mnist_convnet
+        emloop train -v mnist_convnet
 
   test_imdb: &test_imdb
     run:
       name: Run IMDB training
       command: |
-        cxflow train -v .circleci/test_imdb.yaml
+        emloop train -v .circleci/test_imdb.yaml
 
 jobs:
 
   test_ubuntu:
     docker:
       - image: ubuntu:rolling
-    working_directory: cxflow-examples
+    working_directory: emloop-examples
     steps:
       - *ubuntu_deps
       - checkout

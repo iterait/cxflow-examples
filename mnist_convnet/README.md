@@ -1,23 +1,23 @@
-# Convnet in cxflow-tensorflow
-This folder contains convolutional network example written in **cxflow-tensorflow**
-commented in greater detail in our [cxflow-tensorflow tutorial](https://tensorflow.cxflow.org/tutorial.html).
+# Convnet in emloop-tensorflow
+This folder contains convolutional network example written in **emloop-tensorflow**
+commented in greater detail in our [emloop-tensorflow tutorial](https://tensorflow.emloop.org/tutorial.html).
 
 It is required to have **python 3.5+** and **pip** available in your system.
 
-1. Install **cxflow-tensorflow** and download the examples (if not done yet):
+1. Install **emloop-tensorflow** and download the examples (if not done yet):
 ```
-pip3 install cxflow cxflow-tensorflow --upgrade
-git clone https://github.com/iterait/cxflow-examples.git
-cd cxflow-examples
+pip3 install emloop emloop-tensorflow --upgrade
+git clone https://github.com/iterait/emloop-examples.git
+cd emloop-examples
 ```
 
 2. Download the data and train the network:
 ```
-cxflow dataset download mnist_convnet
-cxflow train mnist_convnet
+emloop dataset download mnist_convnet
+emloop train mnist_convnet
 ```
 
 3. Train on two GPUs (omit `model.n_gpus:int=2` in order to train on CPU):
 ```
-cxflow train mnist_convnet model.n_gpus:int=2
+emloop train mnist_convnet model.n_gpus:int=2
 ```

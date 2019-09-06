@@ -5,16 +5,16 @@ import os
 import os.path as path
 
 import numpy as np
-import cxflow as cx
+import emloop as el
 
-DOWNLOAD_ROOT = 'https://github.com/iterait/cxflow-examples/releases/download/mnist-dataset/'
+DOWNLOAD_ROOT = 'https://github.com/iterait/emloop-examples/releases/download/mnist-dataset/'
 FILENAMES = {'train_images': 'train-images-idx3-ubyte.gz',
              'train_labels': 'train-labels-idx1-ubyte.gz',
              'test_images': 't10k-images-idx3-ubyte.gz',
              'test_labels': 't10k-labels-idx1-ubyte.gz'}
 
 
-class MNISTDataset(cx.DownloadableDataset):
+class MNISTDataset(el.DownloadableDataset):
     """ MNIST dataset for hand-written digits recognition."""
 
     def _configure_dataset(self, data_root=path.join('mnist_convnet', '.mnist-data'), batch_size:int=100, **kwargs) -> None:
@@ -31,7 +31,7 @@ class MNISTDataset(cx.DownloadableDataset):
                 file_path = path.join(self._data_root, FILENAMES[key])
                 if not path.exists(file_path):
                     raise FileNotFoundError('File `{}` does not exist. '
-                                            'Run `cxflow dataset download <path-to-config>` first!'.format(file_path))
+                                            'Run `emloop dataset download <path-to-config>` first!'.format(file_path))
                 with gzip.open(file_path, 'rb') as file:
                     if 'images' in key:
                         _, _, rows, cols = struct.unpack(">IIII", file.read(16))
@@ -41,13 +41,13 @@ class MNISTDataset(cx.DownloadableDataset):
                         self._data[key] = np.frombuffer(file.read(), dtype=np.int8)
             self._data_loaded = True
 
-    def train_stream(self) -> cx.Stream:
+    def train_stream(self) -> el.Stream:
         self._load_data()
         for i in range(0, len(self._data['train_labels']), self._batch_size):
             yield {'images': self._data['train_images'][i: i + self._batch_size],
                    'labels': self._data['train_labels'][i: i + self._batch_size]}
 
-    def test_stream(self) -> cx.Stream:
+    def test_stream(self) -> el.Stream:
         self._load_data()
         for i in range(0, len(self._data['test_labels']), self._batch_size):
             yield {'images': self._data['test_images'][i: i + self._batch_size],

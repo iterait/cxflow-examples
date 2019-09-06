@@ -22,4 +22,3 @@ hooks:
   - LogProfile
   - StopAfter:
       minutes: 2
-

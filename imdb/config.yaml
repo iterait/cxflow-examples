@@ -27,7 +27,7 @@ hooks:
   - SaveBest:
       stream: test
   - LogProfile
-  - cxflow_tensorflow.hooks.WriteTensorBoard
+  - emloop_tensorflow.hooks.WriteTensorBoard
   - StopAfter:
       epochs: 10
 

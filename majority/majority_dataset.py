@@ -1,12 +1,12 @@
-import cxflow as cx
+import emloop as el
 import numpy.random as npr
 
 
-class MajorityDataset(cx.BaseDataset):
+class MajorityDataset(el.BaseDataset):
     """
     Toy dataset for the majority task.
 
-    See ../majority/README.md for basic usage. or <https://iterait.github.io/cxflow/tutorial> for detailed tutorial.
+    See ../majority/README.md for basic usage. or <https://iterait.github.io/emloop/tutorial> for detailed tutorial.
     """
 
     def _configure_dataset(self, n_examples: int, dim: int, batch_size: int, **kwargs) -> None:
@@ -26,12 +26,12 @@ class MajorityDataset(cx.BaseDataset):
         self._train_x, self._train_y = x[:int(.8 * n_examples)], y[:int(.8 * n_examples)]
         self._test_x, self._test_y = x[int(.8 * n_examples):], y[int(.8 * n_examples):]
 
-    def train_stream(self) -> cx.Stream:
+    def train_stream(self) -> el.Stream:
         for i in range(0, len(self._train_x), self.batch_size):
             yield {'x': self._train_x[i: i + self.batch_size],
                    'y': self._train_y[i: i + self.batch_size]}
 
-    def test_stream(self) -> cx.Stream:
+    def test_stream(self) -> el.Stream:
         for i in range(0, len(self._test_x), self.batch_size):
             yield {'x': self._test_x[i: i + self.batch_size],
                    'y': self._test_y[i: i + self.batch_size]}
